@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            function myReplace(str, before, after) {
+                let tempBefore = before;
+                let tempAfter = after;
+                let regexLarge = /[A-Z]/;
+                let regexSmall = /[a-z]/;
+                //console.log("The matching is " + regexLarge.test(tempBefore[0]));
+                //console.log("The matching is " + regexSmall.test(tempBefore[0]));
+                if(regexLarge.test(tempBefore[0])===true && regexSmall.test(tempAfter[0])===true){
+                    let tempchar = tempAfter[0].toUpperCase(); //console.log(tempchar);
+                    after = tempAfter.replace(tempAfter[0], tempchar);
+                    str = str.replace(tempBefore, after);
+                }else if(regexSmall.test(tempBefore[0])===true && regexLarge.test(tempAfter[0])===true){
+                    let tempchar1 = tempAfter[0].toLowerCase(); //console.log(tempchar1);
+                    after = tempAfter.replace(tempAfter[0], tempchar1);
+                    str = str.replace(tempBefore, after);
+                }
+
+                //console.log("The tempAfter[0] is " + tempAfter[0]);
+                let tempstr = str.replace(tempBefore, tempAfter);
+                return tempstr;
+                }
+                console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "Leaped"));
+                console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+
+        </script>
+    </body>
+</html>
