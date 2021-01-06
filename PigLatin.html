@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            function translatePigLatin(str) {
+                let lettercount = 0;
+                let tempstr = "";
+                let str1 = "";
+                let str2 = "";
+                let str3 = "";
+                
+                for(let i=0; i < str.length; i++){
+                    if(str[i]==="a"||str[i]==="e"||str[i]==="i"||str[i]==="o"||str[i]==="u"){
+                        break;
+                    }
+                    else {lettercount += 1;}  
+                    //console.log("The char is "+ str[i]);                  
+                }
+                //console.log(lettercount);
+                
+                if(lettercount != 0){tempstr = str.slice(0, lettercount);
+                    str1 = str.substring(0, lettercount);
+                    str2 = str.substring(lettercount);
+                    str3 = str2.concat(str1 + "ay");
+                }else{str2 = str.substring(lettercount);
+                    str3 = str2.concat(str1 + "way");}
+                //console.log("The new str is " + str3);
+
+                return str3;
+                }
+                translatePigLatin("consonant");
+                translatePigLatin("algorithm");
+        </script>
+    </body>
+</html>
